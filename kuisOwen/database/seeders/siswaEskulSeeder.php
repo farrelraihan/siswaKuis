@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\siswa_eskul;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\siswa_eskul;
 
 class siswaEskulSeeder extends Seeder
 {
@@ -15,47 +15,18 @@ class siswaEskulSeeder extends Seeder
     {
         siswa_eskul::query()->delete();
 
-        $siswaEskul = new siswa_eskul();
-        $siswaEskul->id = 'SE001';
-        $siswaEskul->siswa_id = 'S001';
-        $siswaEskul->eskul_id = 'E001';
-        $siswaEskul->tanggal_daftar = '2021-09-01';
-        $siswaEskul->status = 'Aktif';
-        $siswaEskul->save();
+        $siswaEskuls = [
+            ['id' => 'SE001', 'siswa_id' => 'S001', 'eskul_id' => 'E001', 'tanggal_daftar' => '2022-01-01', 'status' => 'Aktif'],
+            ['id' => 'SE002', 'siswa_id' => 'S002', 'eskul_id' => 'E002', 'tanggal_daftar' => '2022-02-01', 'status' => 'Aktif'],
+            ['id' => 'SE003', 'siswa_id' => 'S003', 'eskul_id' => 'E003', 'tanggal_daftar' => '2022-03-01', 'status' => 'Aktif'],
+            ['id' => 'SE004', 'siswa_id' => 'S004', 'eskul_id' => 'E004', 'tanggal_daftar' => '2022-04-01', 'status' => 'Aktif'],
+            ['id' => 'SE005', 'siswa_id' => 'S005', 'eskul_id' => 'E001', 'tanggal_daftar' => '2022-05-01', 'status' => 'Tidak Aktif'],
+            ['id' => 'SE006', 'siswa_id' => 'S006', 'eskul_id' => 'E002', 'tanggal_daftar' => '2022-06-01', 'status' => 'Menunggu Konfirmasi'],
+            ['id' => 'SE007', 'siswa_id' => 'S007', 'eskul_id' => 'E003', 'tanggal_daftar' => '2022-07-01', 'status' => 'Tidak Aktif'],
+        ];
 
-        $siswaEskul = new siswa_eskul();
-        $siswaEskul->id = 'SE002';
-        $siswaEskul->siswa_id = 'S002';
-        $siswaEskul->eskul_id = 'E002';
-        $siswaEskul->tanggal_daftar = '2022-10-01';
-        $siswaEskul->status = 'Tidak Aktif';
-        $siswaEskul->save();
-
-        $siswaEskul = new siswa_eskul();
-        $siswaEskul->id = 'SE003';
-        $siswaEskul->siswa_id = 'S003';
-        $siswaEskul->eskul_id = 'E003';
-        $siswaEskul->tanggal_daftar = '2022-09-01';
-        $siswaEskul->status = 'Menunggu Konfirmasi';
-        $siswaEskul->save();
-
-        $siswaEskul = new siswa_eskul();
-        $siswaEskul->id = 'SE004';
-        $siswaEskul->siswa_id = 'S004';
-        $siswaEskul->eskul_id = 'E001';
-        $siswaEskul->tanggal_daftar = '2022-09-01';
-        $siswaEskul->status = 'Aktif';
-        $siswaEskul->save();
-
-        $siswaEskul = new siswa_eskul();
-        $siswaEskul->id = 'SE005';
-        $siswaEskul->siswa_id = 'S005';
-        $siswaEskul->eskul_id = 'E002';
-        $siswaEskul->tanggal_daftar = '2022-09-01';
-        $siswaEskul->status = 'Aktif';
-        $siswaEskul->save();
-
-
-
+        foreach ($siswaEskuls as $siswaEskul) {
+            siswa_eskul::create($siswaEskul);
+        }
     }
 }

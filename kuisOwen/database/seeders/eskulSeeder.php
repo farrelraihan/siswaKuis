@@ -15,34 +15,15 @@ class eskulSeeder extends Seeder
     {
         eskul::query()->delete();
 
-        $eskul = new eskul();
-        $eskul->id = 'E001';
-        $eskul->nama_eskul = 'Paskibra';
-        $eskul->pembina = 'Budi';
-        $eskul->jadwal = 'Senin 12:00-14:00';
-        $eskul->ruangan = 'Aula';
-        $eskul->kuota = '30';
-        $eskul->deskripsi = 'Paskibra adalah ekstrakurikuler yang bergerak di bidang kepramukaan';
-        $eskul->save();
+        $eskuls = [
+            ['id' => 'E001', 'nama_eskul' => 'Paskibra', 'pembina' => 'Budi', 'jadwal' => 'Senin 12:00-14:00', 'ruangan' => 'Aula', 'kuota' => '30', 'deskripsi' => 'Paskibra adalah ekstrakurikuler yang bergerak di bidang kepramukaan'],
+            ['id' => 'E002', 'nama_eskul' => 'Basket', 'pembina' => 'Arif', 'jadwal' => 'Rabu 15:00-17:00', 'ruangan' => 'Lapangan Basket', 'kuota' => '20', 'deskripsi' => 'Ekstrakurikuler basket untuk melatih kerjasama tim dan skill bermain basket'],
+            ['id' => 'E003', 'nama_eskul' => 'Paduan Suara', 'pembina' => 'Citra', 'jadwal' => 'Jumat 14:00-16:00', 'ruangan' => 'Ruang Musik', 'kuota' => '25', 'deskripsi' => 'Mengembangkan bakat menyanyi dan harmonisasi dalam grup'],
+            ['id' => 'E004', 'nama_eskul' => 'Futsal', 'pembina' => 'Dani', 'jadwal' => 'Kamis 16:00-18:00', 'ruangan' => 'Lapangan Futsal', 'kuota' => '25', 'deskripsi' => 'Ekstrakurikuler futsal untuk melatih kerjasama tim dan skill bermain futsal'],
+        ];
 
-        $eskul = new eskul();
-$eskul->id = 'E002';
-$eskul->nama_eskul = 'Basket';
-$eskul->pembina = 'Arif';
-$eskul->jadwal = 'Rabu 15:00-17:00';
-$eskul->ruangan = 'Lapangan Basket';
-$eskul->kuota = '20';
-$eskul->deskripsi = 'Ekstrakurikuler basket untuk melatih kerjasama tim dan skill bermain basket';
-$eskul->save();
-
-$eskul = new eskul();
-$eskul->id = 'E003';
-$eskul->nama_eskul = 'Paduan Suara';
-$eskul->pembina = 'Citra';
-$eskul->jadwal = 'Jumat 14:00-16:00';
-$eskul->ruangan = 'Ruang Musik';
-$eskul->kuota = '25';
-$eskul->deskripsi = 'Mengembangkan bakat menyanyi dan harmonisasi dalam grup';
-$eskul->save();
+        foreach ($eskuls as $eskul) {
+            eskul::create($eskul);
+        }
     }
 }
